@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مدرسة الجرف للبنين حلقة ثانية</title>  
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .search {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #198754;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      display: none;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #e9ecef;
+    }
+    .student-name {
+      margin-top: 15px;
+      font-weight: bold;
+      display: none;
+    }
+    .error {
+      color: red;
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>مدرسة الجرف للبنين - حلقة ثانية</h1>
+	<h1>بطاقة تقييم الطالب</h1>
+
+    <div class="search">
+      <input type="text" id="studentId" placeholder="أدخل رقم الهوية" />
+      <button onclick="loadData()">عرض النتائج</button>
+    </div>
+
+    <div id="studentName" class="student-name"></div>
+    <div id="error" class="error">رقم الهوية غير موجود</div>
+
+    <table id="gradesTable">
+      <thead>
+        <tr>
+          <th>المادة</th>
+          <th>العلامة</th>
+          <th>اسم المعلم</th>
+          <th>ملاحظات</th>
+        </tr>
+      </thead>
+      <tbody id="gradesBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    // 🔗 ضع هنا رابط Google Sheet بعد نشره كـ CSV
+    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQs9zjnftw5H3FlH3stPfs3M_ysKl0CM82ypupqx0Ax1lPGyDgXp5oIB-022og3njBz9IOBUDOcYBfC/pub?gid=0&single=true&output=csv";
+
+    async function loadData() {
+      const studentId = document.getElementById("studentId").value;
+      const table = document.getElementById("gradesTable");
+      const body = document.getElementById("gradesBody");
+      const nameDiv = document.getElementById("studentName");
+      const errorDiv = document.getElementById("error");
+
+      body.innerHTML = "";
+
+      const response = await fetch(SHEET_URL);
+      const data = await response.text();
+      const rows = data.split("\n").slice(1);
+
+      let found = false;
+
+      rows.forEach(row => {
+        const cols = row.split(",");
+        if (cols[0] === studentId) {
+          found = true;
+          nameDiv.style.display = "block";
+          nameDiv.innerText = "اسم الطالب: " + cols[1];
+          table.style.display = "table";
+          errorDiv.style.display = "none";
+
+          body.innerHTML += `
+            <tr>
+              <td>${cols[2]}</td>
+              <td>${cols[3]}</td>
+              <td>${cols[4]}</td>
+              <td>${cols[5]}</td>
+            </tr>`;
+        }
+      });
+
+      if (!found) {
+        table.style.display = "none";
+        nameDiv.style.display = "none";
+        errorDiv.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
