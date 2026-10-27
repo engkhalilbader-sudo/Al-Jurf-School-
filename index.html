@@ -1,143 +1,81 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>مدرسة الجرف للبنين حلقة ثانية</title>  
-  <style>
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .search {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input {
-      padding: 10px;
-      width: 250px;
-      font-size: 16px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background: #198754;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      display: none;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background: #e9ecef;
-    }
-    .student-name {
-      margin-top: 15px;
-      font-weight: bold;
-      display: none;
-    }
-    .error {
-      color: red;
-      text-align: center;
-      display: none;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بطاقة تقييم الطالب | مدرسة الجرف للبنين</title>
+<style>
+:root{--ink:#173c38;--green:#146555;--gold:#b58a46;--muted:#687b78;--line:#dce5e1}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f3f6f4;color:var(--ink);line-height:1.8}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}button:focus-visible,input:focus-visible{outline:3px solid #bf984f;outline-offset:4px}.wrap{max-width:1080px;margin:auto;padding:0 28px}.topbar{background:white;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:14px;padding-top:23px;padding-bottom:23px}.mark{width:52px;height:52px;border-radius:14px;background:var(--green);color:white;display:grid;place-items:center;flex-shrink:0}.brand strong{font-size:18px;display:block}.brand small{color:var(--muted);font-size:12px}.brand-tag{margin-right:auto;font-size:12px;border:1px solid var(--line);border-radius:30px;padding:6px 15px}.hero{padding:44px 0 30px}.eyebrow{color:#96713a;font-weight:bold;font-size:12px;letter-spacing:1px}.hero h1{font-size:36px;line-height:1.5;margin:8px 0}.hero p{color:var(--muted);margin:0;font-size:15px}.search-card{background:var(--ink);border-radius:20px;padding:26px 30px;color:white;box-shadow:0 12px 28px #173c3810}.search-card label{display:block;font-size:14px;margin-bottom:10px}.search-row{display:flex;gap:12px}input{flex:1;min-width:0;border:1px solid #d0dcd7;border-radius:9px;background:white;padding:12px 16px;color:var(--ink);direction:ltr;text-align:right}input::placeholder{color:#83938f}.primary{background:#c6a260;color:#173c38;border:0;border-radius:9px;font-weight:bold;padding:12px 26px}.search-card .hint{font-size:12px;color:#c4d6d0;margin:10px 0 0}.status{padding:16px 20px;border-radius:10px;background:#fff3ed;color:#973f27;margin:18px 0;border:1px solid #f0d3c5}.empty{margin:25px 0;background:white;border:1px dashed #cad8d1;border-radius:16px;text-align:center;padding:42px 20px}.empty svg{color:#98ada4}.empty h2{font-size:19px;margin:10px 0 4px}.empty p{color:var(--muted);font-size:14px;margin:0}.actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:26px 0 16px}.actions p{margin:0;color:var(--muted);font-size:13px}.print-btn{border:0;background:var(--green);color:white;border-radius:9px;padding:11px 20px;font-weight:bold}.report{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:24px}.report-head{display:flex;align-items:start;justify-content:space-between;gap:20px;padding:26px 30px;border-bottom:3px solid var(--gold)}.report-school{font-weight:bold;font-size:17px}.report-head h2{margin:5px 0 0;font-size:23px}.report-date{font-size:12px;color:var(--muted);text-align:left}.student-info{padding:24px 30px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;background:#f8faf8;border-bottom:1px solid var(--line)}.info-label{font-size:12px;color:var(--muted);display:block}.info-value{font-size:17px;font-weight:bold;display:block;overflow-wrap:anywhere}.table-wrap{overflow-x:auto;padding:10px 30px 25px}table{border-collapse:collapse;width:100%;font-size:14px;table-layout:fixed}th{background:#edf3ef;font-size:12px;color:#486159;text-align:right;padding:13px 12px}td{padding:16px 12px;border-bottom:1px solid #e7ede9;overflow-wrap:anywhere;white-space:pre-line;vertical-align:top}td:nth-child(2){font-weight:bold;color:var(--green)}th:nth-child(1){width:24%}th:nth-child(2){width:14%}th:nth-child(3){width:25%}th:nth-child(4){width:37%}.report-foot{padding:18px 30px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.report-foot p{margin:0}.page-footer{padding:10px 0 28px;color:var(--muted);font-size:12px;text-align:center}.print-empty{display:none}@media(max-width:620px){.wrap{padding:0 16px}.brand strong{font-size:14px}.brand-tag{display:none}.hero{padding-top:28px}.hero h1{font-size:28px}.search-card{padding:22px}.search-row{flex-direction:column}.actions{align-items:stretch;flex-direction:column}.report-head{padding:20px;flex-direction:column;gap:6px}.report-date{text-align:right}.student-info{padding:20px;grid-template-columns:1fr 1fr}.student-info>div:first-child{grid-column:1/-1}.table-wrap{padding:10px 14px 20px}table{min-width:570px}.report-foot{padding:16px 20px}}@page{size:A4 portrait;margin:14mm}@media print{body{background:white;color:#172d28;font-size:11pt}.topbar,.hero,.search-card,.status,.empty,.actions,.page-footer{display:none!important}.wrap{max-width:none;padding:0}.report{border:0;border-radius:0;margin:0;overflow:visible}.report-head{padding:0 0 18px;flex-direction:row;border-bottom:2px solid #555}.report-date{text-align:left}.report-school{font-size:13pt}.report-head h2{font-size:20pt}.student-info{padding:18px 0;background:white;grid-template-columns:2fr 1fr 1fr}.student-info>div:first-child{grid-column:auto}.info-value{font-size:12pt}.table-wrap{overflow:visible;padding:18px 0}table{min-width:0;font-size:10pt}thead{display:table-header-group}th{background:#eee!important;color:#111}th,td{padding:10px 8px;border-bottom:1px solid #bbb}tr{break-inside:avoid}.report-foot{padding:14px 0;break-inside:avoid}.report-head,.student-info{break-inside:avoid}body:not(.has-result) .print-empty{display:block;text-align:center;margin-top:40px}}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>مدرسة الجرف للبنين - حلقة ثانية</h1>
-	<h1>بطاقة تقييم الطالب</h1>
-
-    <div class="search">
-      <input type="text" id="studentId" placeholder="أدخل رقم الهوية" />
-      <button onclick="loadData()">عرض النتائج</button>
-    </div>
-
-    <div id="studentName" class="student-name"></div>
-    <div id="error" class="error">رقم الهوية غير موجود</div>
-
-    <table id="gradesTable">
-      <thead>
-        <tr>
-          <th>المادة</th>
-          <th>العلامة</th>
-          <th>اسم المعلم</th>
-          <th>ملاحظات</th>
-        </tr>
-      </thead>
-      <tbody id="gradesBody"></tbody>
-    </table>
-  </div>
-
-  <script>
-    // 🔗 ضع هنا رابط Google Sheet بعد نشره كـ CSV
-    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQs9zjnftw5H3FlH3stPfs3M_ysKl0CM82ypupqx0Ax1lPGyDgXp5oIB-022og3njBz9IOBUDOcYBfC/pub?gid=0&single=true&output=csv";
-
-    async function loadData() {
-      const studentId = document.getElementById("studentId").value;
-      const table = document.getElementById("gradesTable");
-      const body = document.getElementById("gradesBody");
-      const nameDiv = document.getElementById("studentName");
-      const errorDiv = document.getElementById("error");
-
-      body.innerHTML = "";
-
-      const response = await fetch(SHEET_URL);
-      const data = await response.text();
-      const rows = data.split("\n").slice(1);
-
-      let found = false;
-
-      rows.forEach(row => {
-        const cols = row.split(",");
-        if (cols[0] === studentId) {
-          found = true;
-          nameDiv.style.display = "block";
-          nameDiv.innerText = "اسم الطالب: " + cols[1];
-          table.style.display = "table";
-          errorDiv.style.display = "none";
-
-          body.innerHTML += `
-            <tr>
-              <td>${cols[2]}</td>
-              <td>${cols[3]}</td>
-              <td>${cols[4]}</td>
-              <td>${cols[5]}</td>
-            </tr>`;
-        }
-      });
-
-      if (!found) {
-        table.style.display = "none";
-        nameDiv.style.display = "none";
-        errorDiv.style.display = "block";
-      }
-    }
-  </script>
+<header class="topbar"><div class="wrap brand"><div class="mark" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v15M3 4c4-1 6 0 9 2 3-2 5-3 9-2v15c-4-1-6 0-9 2-3-2-5-3-9-2z"/></svg></div><div><strong>مدرسة الجرف للبنين – الحلقة الثانية</strong><small>AL JURF BOYS SCHOOL · CYCLE TWO</small></div><span class="brand-tag">بوابة تقييم الطالب</span></div></header>
+<main class="wrap">
+<section class="hero"><span class="eyebrow">متابعة التعلّم • شراكة مع الأسرة</span><h1>خطوة أقرب إلى تقدّم أبنائنا</h1><p>اطّلع على تقييم الطالب وملاحظات معلميه، واحتفظ بنسخة من تقريره.</p></section>
+<form class="search-card" id="searchForm"><label for="studentId">رقم هوية الطالب</label><div class="search-row"><input id="studentId" name="studentId" type="text" inputmode="numeric" autocomplete="off" maxlength="40" placeholder="أدخل رقم الهوية" aria-describedby="searchHint" required><button class="primary" id="searchButton" type="submit">عرض التقييم ←</button></div><p class="hint" id="searchHint">يمكن إدخال الرقم بالأرقام العربية أو الإنجليزية، مع الشرطات أو بدونها.</p></form>
+<div id="status" class="status" role="status" aria-live="polite" hidden></div>
+<section class="empty" id="empty"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 3h10v3h3v15H4V6h3zM7 3v5h10V3M8 12h8M8 16h5"/></svg><h2>بطاقة الطالب في مكان واحد</h2><p>أدخل رقم الهوية لعرض المواد والعلامات وملاحظات المعلمين.</p></section>
+<div class="actions" id="actions" hidden><p>يمكنك الطباعة أو اختيار «حفظ بصيغة PDF» من نافذة الطباعة.</p><button class="print-btn" type="button" id="printButton">طباعة تقييم الطالب</button></div>
+<article class="report" id="report" aria-label="تقرير تقييم الطالب" hidden>
+<div class="report-head"><div><div class="report-school">مدرسة الجرف للبنين – الحلقة الثانية</div><h2>بطاقة تقييم الطالب</h2></div><div class="report-date">تاريخ إصدار التقرير<br><strong id="reportDate"></strong></div></div>
+<div class="student-info"><div><span class="info-label">اسم الطالب</span><span class="info-value" id="studentName"></span></div><div><span class="info-label">رقم الهوية (آخر 4 أرقام)</span><bdi class="info-value" id="studentNumber"></bdi></div><div><span class="info-label">عدد المواد المعروضة</span><span class="info-value" id="subjectCount"></span></div></div>
+<div class="table-wrap"><table id="gradesTable"><thead><tr><th scope="col">المادة</th><th scope="col">العلامة</th><th scope="col">اسم المعلم</th><th scope="col">ملاحظات</th></tr></thead><tbody id="gradesBody"></tbody></table></div>
+<div class="report-foot"><p>العلامات والملاحظات كما وردت في سجل التقييم. للاستفسار، يرجى التواصل مع المدرسة.</p><p>مدرسة الجرف للبنين – الحلقة الثانية | معًا لدعم تقدّم الطالب</p></div>
+</article>
+<p class="print-empty">يرجى عرض تقييم الطالب أولًا، ثم اختيار طباعة تقييم الطالب.</p>
+<footer class="page-footer">مدرسة الجرف للبنين – الحلقة الثانية<br>متابعة مستمرة، وتعلّم أفضل.</footer>
+</main>
+<script>
+// ترتيب أعمدة المصدر: رقم الهوية، اسم الطالب، المادة، العلامة، اسم المعلم، الملاحظات.
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQs9zjnftw5H3FlH3stPfs3M_ysKl0CM82ypupqx0Ax1lPGyDgXp5oIB-022og3njBz9IOBUDOcYBfC/pub?gid=0&single=true&output=csv";
+const el = id => document.getElementById(id);
+let requestVersion = 0;
+let activeController;
+function normalizeId(value) {return String(value).replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).replace(/[\s\-–—\u200e\u200f\u061c]/g,'').trim();}
+function parseCSV(text) {
+  const rows=[]; let row=[],field='',quoted=false;
+  text=text.replace(/^\uFEFF/,'');
+  for(let i=0;i<text.length;i++) {
+    const c=text[i];
+    if(c==='"') {if(quoted&&text[i+1]==='"'){field+='"';i++;}else{quoted=!quoted;}}
+    else if(c===','&&!quoted){row.push(field);field='';}
+    else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(v=>v.trim()))rows.push(row);row=[];field='';}
+    else field+=c;
+  }
+  if(quoted)throw new Error('Invalid CSV');
+  row.push(field);if(row.some(v=>v.trim()))rows.push(row);return rows;
+}
+function clearResult(){el('report').hidden=true;el('actions').hidden=true;el('gradesBody').replaceChildren();el('studentName').textContent='';el('studentNumber').textContent='';document.body.classList.remove('has-result');}
+function message(text){el('status').textContent=text;el('status').hidden=false;}
+el('studentId').addEventListener('input',()=>{requestVersion++;if(activeController)activeController.abort();clearResult();el('status').hidden=true;el('empty').hidden=false;el('searchButton').disabled=false;el('searchButton').textContent='عرض التقييم ←';});
+el('searchForm').addEventListener('submit',event=>{event.preventDefault();loadData();});
+async function loadData(){
+  if(activeController)activeController.abort();
+  const version=++requestVersion,id=normalizeId(el('studentId').value);
+  clearResult();el('status').hidden=true;el('empty').hidden=true;
+  if(!/^\d+$/.test(id)){message('يرجى إدخال رقم هوية صحيح بالأرقام.');return;}
+  const controller=new AbortController();activeController=controller;
+  const timeout=setTimeout(()=>controller.abort(),20000);
+  el('searchButton').disabled=true;el('searchButton').textContent='جارٍ البحث…';
+  try{
+    const response=await fetch(SHEET_URL,{signal:controller.signal,cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const text=await response.text();if(/^\s*</.test(text))throw new Error('Unexpected response');
+    const rows=parseCSV(text);if(!rows.length||rows[0].length<6)throw new Error('Invalid columns');
+    if(version!==requestVersion)return;
+    const matched=rows.slice(1).filter(row=>normalizeId(row[0])===id);
+    if(!matched.length){message('لم يتم العثور على تقييم لهذا الرقم. تأكد من رقم الهوية أو تواصل مع المدرسة.');return;}
+    if(matched.some(row=>row.length<6))throw new Error('Incomplete record');
+    el('studentName').textContent=matched[0][1].trim()||'غير مسجل';
+    el('studentNumber').textContent='•••• '+id.slice(-4);
+    el('subjectCount').textContent=new Set(matched.map(row=>row[2].trim()).filter(Boolean)).size;
+    el('reportDate').textContent=new Intl.DateTimeFormat('ar-AE',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Dubai'}).format(new Date());
+    const fragment=document.createDocumentFragment();
+    matched.forEach(row=>{const tr=document.createElement('tr');for(let col=2;col<=5;col++){const td=document.createElement('td');td.textContent=row[col].trim()||'—';tr.appendChild(td);}fragment.appendChild(tr);});
+    el('gradesBody').appendChild(fragment);el('report').hidden=false;el('actions').hidden=false;document.body.classList.add('has-result');
+  }catch(error){if(version===requestVersion)message(error.name==='AbortError'?'استغرق الاتصال وقتًا أطول من المتوقع. يرجى إعادة المحاولة.':'تعذّر تحميل التقييم. تحقق من الاتصال بالإنترنت، ثم حاول مجددًا.');}
+  finally{clearTimeout(timeout);if(version===requestVersion){el('searchButton').disabled=false;el('searchButton').textContent='عرض التقييم ←';}}
+}
+el('printButton').addEventListener('click',()=>{if(!el('report').hidden)window.print();});
+</script>
 </body>
 </html>
